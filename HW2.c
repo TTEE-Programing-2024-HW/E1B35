@@ -36,9 +36,12 @@ puts("                                             ..::...");
     system("PAUSE");
 	system("CLS");//清除畫面 
 	
-	int password;
+	int password,a;
+	for(a=0;a<3;a++)
+	{
 	printf("請輸入密碼");
 	scanf("%d",&password);// 讀取輸入的密碼
+	
 	
 	if(password==2024)
 	{	
@@ -142,7 +145,8 @@ while(1)//無窮迴圈
         }
     else
 	{
-		printf("%c密碼錯誤",'\a');	
+		printf("%c密碼錯誤\n",'\a');	
+	}
 	}
             	    return 0;
 }
