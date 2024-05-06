@@ -56,8 +56,8 @@ while(1)//無窮迴圈
 	printf("----------------------------\n");
 	
 //3.	
-	char letter;
-	int n;
+	char letter,i,j;
+	int n,k;
 	printf("請輸入一個'a'、'b'、'c'的字元：");
     scanf("%c", &letter);
     
@@ -74,13 +74,13 @@ while(1)//無窮迴圈
                 } 
 				else 
 				{
-                    for (char i=letter; i>='a';i--) //每一行從i開始遞減到a
+                    for (i=letter; i>='a';i--) //每一行從i開始遞減到a
 					{
-                        for (char j=i-'a'; j>0;j--)//每一行前置空格(確保直角三角形的右邊是直的) 
+                        for (j=i-'a'; j>0;j--)//每一行前置空格(確保直角三角形的右邊是直的) 
 						{
                             printf(" ");//每一行中插入空格(對齊) 
                         }
-                        for(char j=i;j<=letter;j++)//每一行從i開始遞增到letter
+                        for(j=i;j<=letter;j++)//每一行從i開始遞增到letter
                         {
 						    printf("%c", j);
 						}
@@ -94,6 +94,7 @@ while(1)//無窮迴圈
 //4.	
             case 'b':
             case 'B':
+            	system("CLS");//清除畫面
             	printf("請輸入一個1~9的整數n：");
             	scanf("%d",&n);
                 if (n<1||n>9) 
@@ -102,9 +103,9 @@ while(1)//無窮迴圈
                 } 
 				else 
 				{
-                    for (int i=1;i<=n;i++) 
+                    for (k=1;k<=n;k++) 
 					{
-                        printf("%d*%d=%d\n",i,i,i*i);
+                        printf("%d*%d=%d\n",k,k,k*k);
                     }
                     
                 }
@@ -115,6 +116,7 @@ while(1)//無窮迴圈
 //5.                
             case 'c':
             case 'C':
+            	system("CLS");//清除畫面
             	printf("\'Continue?(y/n):");
 			while(1){
 				fflush(stdin);//清除輸入緩衝區
