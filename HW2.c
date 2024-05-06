@@ -59,6 +59,7 @@ while(1)//無窮迴圈
 	char letter,i,j;
 	int n,k;
 	printf("請輸入一個'a'、'b'、'c'的字元：");
+	fflush(stdin);
     scanf("%c", &letter);
     
 	switch(letter) {
