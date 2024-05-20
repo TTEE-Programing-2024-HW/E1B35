@@ -175,6 +175,7 @@ switch (choice) {
                 fflush(stdin);
                 scanf(" %c", &choice);
                 if (choice == 'Y' || choice == 'y') {
+                	printf("已幫您預約完成\n");
                     system("pause");
                     system("CLS");//清除畫面 
                     break;
@@ -208,6 +209,7 @@ switch (choice) {
             scanf(" %c", &choice);
             if (choice == 'Y' || choice == 'y') {
                 confirmBooking(arr);  // 確認預約
+                printf("已完成預約\n");
                 system("pause");
                 system("cls");
             } else if (choice == 'N' || choice == 'n') {
@@ -248,4 +250,5 @@ switch (choice) {
     printf("密碼錯誤多次，請稍后再試。\n");
     return 0;
 }
-
+//這次的實驗對於我來說困難了許多，很多部分都是透過chat GPT幫忙做修正和更改的， 
+//但還是需要自己去把每個部份整合好，再重新下達指令讓程式碼更加的完整，成品的使用也才會更佳正確。 
