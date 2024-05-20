@@ -202,6 +202,20 @@ switch (choice) {
             printf("輸入錯誤, 正在返回主選單...\n");
         } else {
             chooseSeats(seatCount);
+            displaySeatingChart(arr);
+            printf("請確認是否正確 (y/n): ");
+            fflush(stdin);
+            scanf(" %c", &choice);
+            if (choice == 'Y' || choice == 'y') {
+                confirmBooking(arr);  // 確認預約
+                system("pause");
+                system("cls");
+            } else if (choice == 'N' || choice == 'n') {
+                generateSeatingChart(arr);  // 重新生成座位
+                system("CLS");  // 清除畫面
+            } else {
+                printf("無效輸入！\n");
+            }
         }
         break;
 //6.
