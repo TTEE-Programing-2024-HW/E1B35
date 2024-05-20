@@ -84,6 +84,15 @@ void chooseSeats(int seatCount) {
         arr[row - 1][col - 1] = '@';
     }
 }
+void confirmBooking(char arr[9][9]) {
+    for (row = 0; row < 9; row++) {
+        for (col = 0; col < 9; col++) {
+            if (arr[row][col] == '@') {
+                arr[row][col] = '*';  
+            }
+        }
+    }
+}
 
 int main(void) {
 //1.                                               
