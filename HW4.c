@@ -46,7 +46,7 @@ int main(void){
     system("PAUSE");
     system("CLS");// 清除畫面
 
-    int password,a,i;
+    int password,a,i,j;
     struct Grade grade[10]; // 假設最多有10個學生
     int n = 0; 
 
@@ -62,11 +62,11 @@ int main(void){
             
                 printf("主選單\n");
                 printf("----------------------------------\n");
-                printf("|  a. 輸入學生成績               |\n");
-                printf("|  b. 顯示學生成績               |\n");  
-                printf("|  c. 查詢學生成績               |\n");
-                printf("|  d. 成績排名                   |\n");
-                printf("|  e. 退出系統                   |\n");
+                printf("|  a. Enter student grades       |\n");
+                printf("|  b. Display student grades     |\n");  
+                printf("|  c. Search for student grades  |\n");
+                printf("|  d. Grade ranking              |\n");
+                printf("|  e. Exit system                |\n");
                 printf("----------------------------------\n");
 
                 char letter;
@@ -94,8 +94,25 @@ int main(void){
                             printf("請輸入學生 %d 的姓名：", i + 1);
                             scanf("%s", grade[i].name);
 
-                            printf("請輸入學生 %d 的學號：", i + 1);
-                            scanf("%s", grade[i].id);
+                            while (1) {
+                                printf("請輸入學生 %d 的學號：", i + 1);
+                                scanf("%s", grade[i].id);
+
+                                // 檢查學號是否重複
+                                int isDuplicate = 0;
+                                for(j = 0; j < i; j++) {
+                                    if(strcmp(grade[i].id, grade[j].id) == 0) {
+                                        isDuplicate = 1;
+                                        break;
+                                    }
+                                }
+
+                                if(isDuplicate) {
+                                    printf("學號重複，請重新輸入。\n");
+                                } else {
+                                    break;
+                                }
+                            }
 
                             while (1) {
                                 printf("請輸入學生 %d 的數學成績：", i + 1);
