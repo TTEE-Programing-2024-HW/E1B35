@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 struct Grade {   // 定義結構來儲存學生成績
     char name[10];
     char id[10];
@@ -153,8 +152,8 @@ int main(void){
                         for(i = 0; i < n; i++){
                             printf("%5s  %5s  %5d   %5d    %5d     %.1f\n", grade[i].name, grade[i].id, grade[i].Math, grade[i].Physics, grade[i].English, grade[i].avg);    
                         }
-                        system("PAUSE");
-                        system("CLS");
+                        system("PAUSE");// 暫停程序
+                        system("CLS");// 清除畫面
                         break;
 //5.
                     case 'c':
@@ -168,7 +167,7 @@ int main(void){
                         int found = 0; // 用於標記是否找到學生
                         for(i = 0; i < n; i++){
                             if(strcmp(searchName, grade[i].name) == 0){ // 字串函數比對內容
-                                printf("%5s  %5s  %5d   %5d    %5d     %.1f\n", grade[i].name, grade[i].id, grade[i].Math, grade[i].Physics, grade[i].English, grade[i].avg);
+                                printf("%5s  %5s  %5d   %5d    %5d     %.1f\n", grade[i].name, grade[i].id, grade[i].Math, grade[i].Physics, grade[i].English, grade[i].avg);//確保佔據5個字符的空間，如果不夠長，則會在左側用空格填充。
                                 found = 1; // 標記為已找到
                             }
                         }
@@ -177,9 +176,28 @@ int main(void){
                             printf("沒有找到姓名為 %s 的學生資料。\n", searchName);
                         }
 
-                        system("PAUSE");
-                        system("CLS");
+                        system("PAUSE");// 暫停程序
+                        system("CLS");// 清除畫面
                         break;
+//6.
+                    case 'd':
+					case 'D':
+    				system("CLS");// 清除畫面
+    				for(i = 0; i < n - 1; i++) {
+        				int max= i;
+        				for(j = i + 1; j < n; j++) {
+            		if(grade[j].avg > grade[max].avg) {
+                		max = j;
+            		}
+        				}
+        			if(max!= i) { // 交換結構體數據
+            		struct Grade temp = grade[i];// 用暫存變數保存當前元素
+            		grade[i] = grade[max];// 將當前元素替換為最大值元素
+            		grade[max] = temp;// 將最大值元素替換為暫存變數中保存的當前元素
+        			}
+    				}
+    				break;    
+                        
 //7.
                     case 'e':
                     case 'E':
@@ -197,12 +215,11 @@ int main(void){
 							else{
 							printf("Error input!\n\'Continue?(y/n):");
 							}
-                }
-            }
-        }
-    }
-        else
-        {
+                		}
+            	}
+        	}
+    	}
+        else{
             printf("%c密碼錯誤\n", '\a');    
         }
     }
