@@ -10,7 +10,7 @@ struct Grade {   // 定義結構來儲存學生成績
     int English;
     float avg;
 };
-
+//1.
 int main(void){
 
     puts("                              .:-:");                               
@@ -57,9 +57,8 @@ int main(void){
         if(password == 2024){
             printf("歡迎\n");
             getchar(); // 清除換行
-
+//2.
             while(1){ // 無限迴圈
-            
                 printf("主選單\n");
                 printf("----------------------------------\n");
                 printf("|  a. Enter student grades       |\n");
@@ -73,7 +72,7 @@ int main(void){
                 printf("請輸入一個'a'、'b'、'c'、'd'或'e'的字元：");
                 fflush(stdin);
                 scanf(" %c", &letter);
-
+//3.
                 switch(letter){
                 
                     case 'a':
@@ -99,15 +98,15 @@ int main(void){
                                 scanf("%s", grade[i].id);
 
                                 // 檢查學號是否重複
-                                int isDuplicate = 0;
+                                int b = 0;
                                 for(j = 0; j < i; j++) {
                                     if(strcmp(grade[i].id, grade[j].id) == 0) {
-                                        isDuplicate = 1;
+                                        b = 1;
                                         break;
                                     }
                                 }
 
-                                if(isDuplicate) {
+                                if(b) {
                                     printf("學號重複，請重新輸入。\n");
                                 } else {
                                     break;
@@ -146,18 +145,42 @@ int main(void){
                         system("PAUSE");// 暫停程序
                         system("CLS");// 清除畫面
                         break;
-
+//4.
                     case 'b':
                     case 'B':
                         system("CLS");// 清除畫面
                         printf("名字    學號    數學    物理    英文    平均\n");
                         for(i = 0; i < n; i++){
-                            printf("%s  %s  %d   %d    %d     %.1f\n", grade[i].name, grade[i].id, grade[i].Math, grade[i].Physics, grade[i].English, grade[i].avg);    
+                            printf("%5s  %5s  %5d   %5d    %5d     %.1f\n", grade[i].name, grade[i].id, grade[i].Math, grade[i].Physics, grade[i].English, grade[i].avg);    
                         }
                         system("PAUSE");
                         system("CLS");
                         break;
+//5.
+                    case 'c':
+                    case 'C':
+                        system("CLS");// 清除畫面
+                        char searchName[10];
+                        printf("請輸入要搜尋的姓名：");
+                        scanf("%s", searchName);
+                        printf("名字    學號    數學    物理    英文    平均\n");
 
+                        int found = 0; // 用於標記是否找到學生
+                        for(i = 0; i < n; i++){
+                            if(strcmp(searchName, grade[i].name) == 0){ // 字串函數比對內容
+                                printf("%5s  %5s  %5d   %5d    %5d     %.1f\n", grade[i].name, grade[i].id, grade[i].Math, grade[i].Physics, grade[i].English, grade[i].avg);
+                                found = 1; // 標記為已找到
+                            }
+                        }
+
+                        if(!found){ // 如果未找到，顯示錯誤訊息
+                            printf("沒有找到姓名為 %s 的學生資料。\n", searchName);
+                        }
+
+                        system("PAUSE");
+                        system("CLS");
+                        break;
+//7.
                     case 'e':
                     case 'E':
             	        system("CLS");//清除畫面
